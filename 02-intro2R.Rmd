@@ -4,8 +4,8 @@ The aim of computational genomics is to provide biological interpretation and in
 dimensional genomics data. Generally speaking, it is similar to any other kind 
 of data analysis endeavor but often times doing computational genomics will require domain specific knowledge and tools.
 
-As new high-throughout experimental techniques on the rise, data analysis 
-capabilities are sought-after features for researchers.  The aim of this chapter is to first familiarize the readers with data analysis steps and then provide basics of R programming within the context of genomic data analysis.R is a free statistical programming language that is popular among researchers and data miners to build software and analyze data. Although 
+As new high-throughout experimental techniques are on the rise, data analysis 
+capabilities are sought-after features for researchers.  The aim of this chapter is to first familiarize the readers with data analysis steps and then provide basics of R programming within the context of genomic data analysis. R is a free statistical programming language that is popular among researchers and data miners to build software and analyze data. Although 
 basic R programming tutorials are easily accessible, we are aiming to introduce 
 the subject with the genomic context in the background. The examples and 
 narrative will always be from real-life situations when you try to analyze 
@@ -20,17 +20,15 @@ discuss this general pattern and how it applies to genomics problems. The data a
 We will now go through brief explanation of the steps within the context of genomic data analysis.
 
 ### Data collection
-Data collection refers to any source, experiment or survey that provides data for the data analysis question you have. In genomics, data collection is done by high-throughput assays introduced in chapter \@ref(intro). One can also use publicly available data sets and specialized data bases also mentioned in chapter \@ref(intro). How much data and what type of data you should collect depends on the question you are trying to answer ant the technical and biological variability of the system you are studying.
+Data collection refers to any source, experiment or survey that provides data for the data analysis question you have. In genomics, data collection is done by high-throughput assays introduced in chapter \@ref(intro). One can also use publicly available data sets and specialized data bases also mentioned in chapter \@ref(intro). How much data and what type of data you should collect depends on the question you are trying to answer and the technical and biological variability of the system you are studying.
 
 ### Data quality check and cleaning
 In general, the data analysis almost always deals with imperfect data. It is 
 common to have missing values or measurements that are noisy. Data quality check
 and cleaning aims to identify any data quality issue and clean it from the dataset.
 
-High-throughout genomics data is produced by technologies that could embed 
-technical biases into the data. If we were to give an example from sequencing,
-the sequenced reads do not have the same quality of bases called. Towards the
-ends of the reads, you might have bases that might be called incorrectly. Identifying those low quality bases and removing them will improve read mapping step. 
+High-throughout genomics data is produced by technologies that introduce 
+technical biases into the data. For example, errors in sequencing reaction cycles accumulate during a run, causing more incorrectly called bases to occur towards the end of a read. Identifying those low quality bases and removing them will improve read mapping step. 
 
 ### Data processing 
 This step refers to processing the data to a format that is suitable for 
@@ -39,12 +37,12 @@ to analyze format. You may need to convert it to other formats by transforming
 data points (such as log transforming, normalizing etc), or subset the data set
 with some arbitrary or pre-defined condition. In terms of genomics, processing
 includes multiple steps. Following the sequencing analysis example above, 
-processing will include aligning reads to the genome and quantification over genes or regions of interest. This simply counting how many reads are covering your regions of interest. This quantity can give you ideas about how much a gene expressed if your experimental protocol was RNA sequencing. This can be followed by some normalization to aid the next step. 
+processing will include aligning reads to the genome and quantification over genes or regions of interest. This will simply count how many reads are covering a genomic region of interest, and will for example give you an idea about the expression level of a gene in an RNA sequencing experiment. This is is often followed by normalization to aid the next step. 
 
 ### Exploratory data analysis and modeling
-This phase usually takes in the processed or semi-processed data and applies machine-learning or statistical methods to explore the data. Typically, one needs to see relationship between variables measured, relationship between samples based on the variables measured. At this point, we might be looking to see if the samples group as expected by the experimental design, are there outliers or any other anomalies ? After this step you might want to do additional clean up or re-processing to deal with anomalies. 
+This phase usually takes in the processed or semi-processed data and applies machine-learning or statistical methods to explore the data. Typically, one needs to see relationships between measured variables and relationships between samples. At this point, we might be looking to see if the samples group as expected by the experimental design, and if there are outliers or any other anomalies ? After this step you might want to do additional clean up or re-processing to deal with anomalies. 
 
-Another related step is modeling. This generally refers to modelling your variable of interest based on other variables you measured. In the context of genomics, it could be that you are trying to predict disease status of the patients from expression of genes you measured from their tissue samples. Then your variable of interest is the disease status and . This is generally called predictive modeling and could be solved with regression based or any other machine-learning methods. This kind of approach is generally called "predictive modeling".
+Another related step is modeling. This generally refers to modelling your variable of interest based on other variables you measured. In the context of genomics, it could be that you are trying to predict disease status of the patients from expression of genes you measured from their tissue samples. Then your variable of interest is the disease status. This is generally called predictive modeling and could be solved with regression based or any other machine-learning methods. This kind of approach is generally called "predictive modeling".
 
 
 Statistical modeling would also be a part of this modeling step, this can cover predictive modeling as well where we use statistical methods such as linear regression. Other analyses such as hypothesis testing, where we have an expectation and we are trying to confirm that expectation is also related to statistical modeling. A good example of this in genomics is the differential gene expression analysis. This can be formulated as comparing two data sets, in this case expression values from condition A and condition B, with the expectation that condition A and condition B has similar expression values. You will see more on this on chapter \@ref(stats).
